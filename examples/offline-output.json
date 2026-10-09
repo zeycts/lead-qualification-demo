@@ -1,0 +1,134 @@
+[
+  {
+    "id": "ready-automation-buyer",
+    "input": "Hi, I need lead routing automation for a small consulting team. Our budget is $5,000 USD and we want a pilot within 21 days. I approve the budget.",
+    "output": {
+      "mode": "offline-fixture",
+      "provenance": "Precomputed illustrative extraction fixture; no inference or network call.",
+      "extracted": {
+        "serviceRequest": "lead routing automation",
+        "budgetText": "$5,000 USD",
+        "timelineText": "within 21 days",
+        "authorityText": "I approve the budget"
+      },
+      "normalized": {
+        "budgetUsd": 5000,
+        "timelineDays": 21,
+        "decisionMaker": true
+      },
+      "score": 100,
+      "priority": "high",
+      "reasons": [
+        {
+          "rule": "service-fit",
+          "points": 30,
+          "explanation": "Request explicitly mentions automation."
+        },
+        {
+          "rule": "budget",
+          "points": 30,
+          "explanation": "Explicit USD budget: 5000; >=3000 earns 30, >=1000 earns 15."
+        },
+        {
+          "rule": "timeline",
+          "points": 20,
+          "explanation": "Explicit timeline: 21 days; 7–30 earns 20."
+        },
+        {
+          "rule": "authority",
+          "points": 20,
+          "explanation": "Explicit budget approval authority."
+        }
+      ],
+      "suggestedReply": "Thanks for reaching out. Could you share your current workflow and desired outcome here in Upwork messages so we can confirm the scope?"
+    }
+  },
+  {
+    "id": "early-automation-research",
+    "input": "We are exploring invoice follow-up automation. We have $1,500 USD for an initial experiment. The launch date is not decided. I cannot approve the budget; my manager decides.",
+    "output": {
+      "mode": "offline-fixture",
+      "provenance": "Precomputed illustrative extraction fixture; no inference or network call.",
+      "extracted": {
+        "serviceRequest": "invoice follow-up automation",
+        "budgetText": "$1,500 USD",
+        "timelineText": null,
+        "authorityText": "I cannot approve the budget; my manager decides"
+      },
+      "normalized": {
+        "budgetUsd": 1500,
+        "timelineDays": null,
+        "decisionMaker": false
+      },
+      "score": 45,
+      "priority": "medium",
+      "reasons": [
+        {
+          "rule": "service-fit",
+          "points": 30,
+          "explanation": "Request explicitly mentions automation."
+        },
+        {
+          "rule": "budget",
+          "points": 15,
+          "explanation": "Explicit USD budget: 1500; >=3000 earns 30, >=1000 earns 15."
+        },
+        {
+          "rule": "timeline",
+          "points": 0,
+          "explanation": "Timeline unknown or unsupported format."
+        },
+        {
+          "rule": "authority",
+          "points": 0,
+          "explanation": "Manager approval stated; lead cannot approve budget."
+        }
+      ],
+      "suggestedReply": "Thanks for reaching out. Do you have a target launch date in mind?"
+    }
+  },
+  {
+    "id": "outside-demo-service-fit",
+    "input": "Could you design a brochure website for my new shop? I have $300 USD and need it within 2 days. I am comparing options.",
+    "output": {
+      "mode": "offline-fixture",
+      "provenance": "Precomputed illustrative extraction fixture; no inference or network call.",
+      "extracted": {
+        "serviceRequest": "brochure website",
+        "budgetText": "$300 USD",
+        "timelineText": "within 2 days",
+        "authorityText": null
+      },
+      "normalized": {
+        "budgetUsd": 300,
+        "timelineDays": 2,
+        "decisionMaker": null
+      },
+      "score": 0,
+      "priority": "low",
+      "reasons": [
+        {
+          "rule": "service-fit",
+          "points": 0,
+          "explanation": "Automation fit not established."
+        },
+        {
+          "rule": "budget",
+          "points": 0,
+          "explanation": "Explicit USD budget: 300; >=3000 earns 30, >=1000 earns 15."
+        },
+        {
+          "rule": "timeline",
+          "points": 0,
+          "explanation": "Explicit timeline: 2 days; 7–30 earns 20."
+        },
+        {
+          "rule": "authority",
+          "points": 0,
+          "explanation": "Approval authority unknown."
+        }
+      ],
+      "suggestedReply": "Thanks for reaching out. My focus is workflow automation, not brochure website design."
+    }
+  }
+]

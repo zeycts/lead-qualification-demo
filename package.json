@@ -1,0 +1,17 @@
+{
+  "name": "lead-qualification-micro-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.3",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "demo": "tsx src/cli.ts demo",
+    "live": "tsx src/cli.ts live",
+    "showcase": "tsx src/cli.ts showcase",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": { "zod": "3.25.76" },
+  "devDependencies": { "@types/node": "24.7.2", "tsx": "4.20.6", "typescript": "5.9.3" }
+}
